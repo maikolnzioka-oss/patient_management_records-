@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    Body{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: left;
+        margin-top: auto;
+        background-color: aqua;
+        
+    }
+</style>
+    <title>Hospital Management System</title>
+</head>
+<body>
+
+    <h2>Hospital Patient Records</h2>
+
+    <!-- Input Form -->
+    <input type="number" id="id" placeholder="Patient ID"><br><br>
+    <input type="text" id="name" placeholder="Name"><br><br>
+    <input type="number" id="age" placeholder="Age"><br><br>
+    <input type="text" id="disease" placeholder="Suffering from?"><br><br>
+
+    <button onclick="addPatient()">Add Patient</button>
+    <button onclick="displayPatients()">Display Patients</button>
+
+    <h3>Patient List</h3>
+    <div id="output"></div>
+
+    <script>
+        let patients = [];
+
+        function addPatient() {
+            let id = document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let disease = document.getElementById("disease").value;
+
+            if (id === "" || name === "" || age === "" || disease === "") {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            let patient = {
+                id: id,
+                name: name,
+                age: age,
+                disease: disease
+            };
+
+            patients.push(patient);
+            alert("Patient added successfully!");
+
+            // Clear inputs
+            document.getElementById("id").value = "";
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("disease").value = "";
+        }
+
+        function displayPatients() {
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+
+            if (patients.length === 0) {
+                output.innerHTML = "No records found.";
+                return;
+            }
+
+            patients.forEach((p, index) => {
+                output.innerHTML += `
+                    <p>
+                        <strong>Patient ${index + 1}</strong><br>
+                        ID: ${p.id}<br>
+                        Name: ${p.name}<br>
+                        Age: ${p.age}<br>
+                        Disease: ${p.disease}
+                    </p>
+                    <hr>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>
