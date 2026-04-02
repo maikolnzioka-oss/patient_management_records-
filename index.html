@@ -4,28 +4,68 @@
 <style>
     Body{
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        text-align: left;
+        text-align: center;
         margin-top: auto;
-        background-color: aqua;
-        
+        background-image: url(nachelle-nocom-LWVIR87DHPY-unsplash.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
     }
+
+    h2{
+        color: rgb(234, 7, 188);
+        text-shadow: 2px 2px 4px rgba(19, 116, 195, 0.5);
+        text-align: center;
+    }
+
+    h3{
+        color: sandybrown;
+        text-shadow: cadetblue;
+        text-align: center;
+    }
+
+    label::before{
+        content: "👤";
+        margin-block:10px;
+
+    }
+
+
+    button{
+        background-color: blueviolet;
+        color: rgb(193, 186, 193);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        align-items:center;
+    }
+
+    .container{
+        background-color: aqua;
+        width: 400px;
+        margin: auto;
+    }
+
 </style>
     <title>Hospital Management System</title>
 </head>
 <body>
+  <h2>Huduma Bora Hospital</h2>
 
-    <h2>Hospital Patient Records</h2>
+    <h3>Hospital Patient Records</h3>
 
     <!-- Input Form -->
     <input type="number" id="id" placeholder="Patient ID"><br><br>
-    <input type="text" id="name" placeholder="Name"><br><br>
+    <input type="text" id="name" placeholder="Patient Name"><br><br>
     <input type="number" id="age" placeholder="Age"><br><br>
     <input type="text" id="disease" placeholder="Suffering from?"><br><br>
 
     <button onclick="addPatient()">Add Patient</button>
     <button onclick="displayPatients()">Display Patients</button>
 
-    <h3>Patient List</h3>
+    <h4>Patient List</h4>
     <div id="output"></div>
 
     <script>
